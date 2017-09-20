@@ -1,0 +1,418 @@
+
+<style type="text/css">
+ .align{text-align: left;}
+ .profile-pic{
+ 	border-radius: 100px;
+    height: 50px;
+    width: 50px;
+ }
+</style>
+<div w3-include-html="menu.html"></div>
+<!-- HTML for Header -->
+<div class="mobile-grid-100 tablet-grid-100 header padd0">
+	<div class="mobile-grid-20 menu-bt">
+		<img src="images/menu-btn.png" class="menu-btn">
+	</div>
+	<div class="mobile-grid-50 title">
+		<h1>Organizing Team</h1>
+	</div>
+	<div class="mobile-grid-30 padd0 icons">
+		<div class="mobile-grid-100 padd0">
+			<div class="mobile-grid-33 notification padd0">
+				<img src="images/notification-icon.png">
+			</div>
+			<div class="mobile-grid-33 attachment padd0">
+				<img src="images/attachment-icon.png">
+			</div>
+			<div class="mobile-grid-33 search padd0">
+				<img src="images/search-icon.png">
+			</div>
+		</div>
+
+	</div>
+</div>
+ 
+
+<div class="mobile-grid-100 org-team" style="margin-top:9%;">
+	
+
+      <div class="org-team-row mobile-grid-100 padd0">
+		<div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Organising Chairperson</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 org-chair">
+		</span>
+	  </div>
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		<div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Treasurer</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 treasure">
+		</span>
+	  </div>
+
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		<div class="mobile-grid-90 padd0 mobile-prefix-5 national align" >
+			  <p>Scientific Committee</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 sci-comm">
+		</span>
+	  </div>
+
+	  <div class="org-team-row mobile-grid-100 padd0">
+		<div class="mobile-grid-90 padd0 mobile-prefix-5 national align" >
+			  <p>Workshop Committee</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 work-comm">
+		</span>
+	  </div> 
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		<div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Reception Committee</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 recep-comm">
+		</span>
+	  </div> 
+
+	  <div class="org-team-row mobile-grid-100 padd0">
+		<div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Organising Secretary</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 org-sec">
+		</span>
+	  </div> 
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		  <div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Hall managementn</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 hall-manag">
+		</span>
+	  </div> 
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		  <div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Venue</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 Venue">
+		</span>
+	  </div> 
+	   <div class="org-team-row mobile-grid-100 padd0">
+		  <div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Jt Secrataries</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 jt-secrat">
+		</span>
+	  </div> 
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		  <div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>and stalls</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 and-stall">
+		</span>
+	  </div>
+
+	   <div class="org-team-row mobile-grid-100 padd0">
+		  <div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Audio - Visual Committee</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 audio-visual">
+		</span>
+	  </div> 
+
+	    <div class="org-team-row mobile-grid-100 padd0">
+		  <div class="mobile-grid-90 padd0 mobile-prefix-5 national align">
+			  <p>Catering Committee</p>
+		  </div><span class="mobile-grid-100 padd0 col-4 cat-comm">
+		</span>
+	  </div>  	
+
+
+
+
+</div>
+
+<script src="js/menu.js"></script>
+<script>
+
+$('.menu-bt').click(function(){
+      $('.menu-detail').fadeIn();
+   }); 
+   $('.menu-top').click(function(){
+        $('.menu-detail').fadeOut();
+   });
+
+	$.ajax({
+		url: base_url+'organizing_teamNew',
+		type: 'POST',
+		dataType: 'json',
+		data: {param1: 'value1'},
+	})
+	.done(function(data) {
+		console.log("success");
+		$.each(data, function(index, val) {
+			//console.log(index);
+			console.log(val);
+			switch (val.committe) {
+				case 'Organising Chairperson':
+					$('.org-chair').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Transport and Accomodation':
+					$('.trans-accom').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>');
+					break;
+				case 'Organising Secretary':
+					$('.org-sec').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>');
+					break;
+				case 'Hall management':
+					$('.hall-manag').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>');
+					break;
+				case 'Treasurer':
+					$('.treasure').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>');
+					break;
+				case 'Venue':
+					$('.Venue').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Workshop Committee':
+					$('.work-comm').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Jt Secrataries':
+					$('.jt-secrat').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'and stalls':
+					$('.and-stall').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Reception Committee':
+					$('.recep-comm').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Audio - Visual Committee':
+					$('.audio-visual').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Transport Accomodation':
+					$('.trans-acc').append('<p class="mobile-grid-50 p0m0" >'+val.name+'</p> ');
+					break;
+				case 'Hall Management':
+					$('.hall-mgmt').append('<p class="mobile-grid-50 p0m0" >'+val.name+'</p> ');
+					break;
+				case 'Venue & Stalls':
+					$('.venue-stalls').append('<p class="mobile-grid-50 p0m0" >'+val.name+'</p> ');
+					break;
+				case 'Audio-Visual Committee':
+					$('.aud-vis-comm').append('<p class="mobile-grid-50 p0m0" >'+val.name+'</p> ');
+					break;
+				case 'Catering Committee':
+					$('.cat-comm').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				case 'Scientific Committee':
+					$('.sci-comm').append('<div class="mobile-grid-100 padd0 relative user-information" style=";margin-bottom:0%;">'+
+						'<div class="mobile-grid-85 padd0 user-dtl">'+
+							'<div class="mobile-grid-100 padd0">'+
+								'<div class="mobile-grid-25 padd0">'+
+									'<img src="'+base_img_url+val.profile_pic+'" class="user-profile-icon profile-pic">'+
+								'</div>'+
+								'<div class="mobile-grid-75 padd0 user-info">'+
+									'<span class="user-name">'+val.name+'</span><br>'+
+									'<span class="user-phone" onclick="open_call('+val.phone+')">'+val.phone+'</span><br>'+
+									'<span class="user-detail" onclick="open_email(\''+val.email+'\')">'+val.email+'</span>'+
+								'</div>'+
+							'</div>'+
+						'</div>'+
+						'<div class="mobile-grid-15 padd0 relative mr-icon">'+
+						'</div>'+
+						'<p data-name="'+val.name+'" data-phone="'+val.phone+'" class="add-contact-btn display-not" style="position: absolute;bottom: 3px;right:10px;background-color: #ffd541;padding: 10px">add to contacts</p>'+
+					'</div>');
+					break;
+				default:
+					// statements_def
+					break;
+			}
+		});
+	})
+	.fail(function() {
+		console.log("error");
+	})
+	.always(function() {
+		console.log("complete");
+	});
+	
+</script>
